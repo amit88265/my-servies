@@ -1,0 +1,28 @@
+plugins {
+	id 'org.springframework.boot' version '2.6.9'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+}
+
+group = 'com.myorg'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation('io.spring.initializr:initializr-web')
+	implementation("io.spring.initializr:initializr-generator-spring")
+}
+dependencyManagement {
+	imports {
+		mavenBom "io.spring.initializr:initializr-bom:0.12.0"
+	}
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}

@@ -1,0 +1,65 @@
+server:
+  port: 9090
+initializr:
+  groupId:
+    value: com.myorg
+  artifactId:
+    value: my-service
+  packageName:
+    value: com.myorg.demo
+  name:
+    value: my-service
+  description:
+    value: A sample myorg project
+  javaVersions:
+    - id: 11
+      default: true
+  languages:
+    - name: Java
+      id: java
+      default: true
+  packagings:
+    - name: Jar
+      id: jar
+      default: true
+    - name: War
+      id: war
+      default: false
+  types:
+    - name: Maven Project
+      id: maven-project
+      description: Generate a Maven based project archive
+      tags:
+        build: maven
+        format: project
+      default: false
+      action: /starter.zip
+    - name: Gradle Project
+      id: gradle-project
+      description: Generate a Gradle based project archive
+      tags:
+        build: gradle
+        format: project
+      default: true
+      action: /starter.zip
+  dependencies:
+    - name: MyOrg
+      content:
+        - name: my-dependecies1 #name visible to end user
+          id: my-dependecies1-id #same as artifactId
+          groupId: com.myorg
+          artifactId: my-dependecies1
+          version: 0.0.1-SNAPSHOT
+          description: Dependency description
+        - name: my-dependecies2
+          id: my-dependecies2-id
+          groupId: com.myorg
+          artifactId: my-dependecies2
+          version: 0.0.1-SNAPSHOT
+          description: Dependency description
+    - name: Web
+      content:
+        - name: Web
+          id: web
+          description: Full-stack web development with Tomcat and Spring MVC
+
